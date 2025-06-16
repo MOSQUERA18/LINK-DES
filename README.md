@@ -1,2 +1,4 @@
-# LINK-DES
-Programa para descarga masiva de archivos desde diferentes navegadores
+# LinkDes
+PROGRAMA PARA ABRIR Y DESCARGAR MEDIANT UN EXCEL DE RESPUESTA DE UN FORMULARIO
+pip install pandas
+pip install PyPDF2
