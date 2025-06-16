@@ -23,8 +23,8 @@ def iniciar():
     navegador = navegador_var.get()
     fila_desde = entry_fila_desde.get().strip()
     fila_hasta = entry_fila_hasta.get().strip()
-    columna_carpeta = entry_columna_carpeta.get().strip()
-    columna_carpeta_extra = entry_columna_carpeta_extra.get().strip()
+    # columna_carpeta = entry_columna_carpeta.get().strip()
+    # columna_carpeta_extra = entry_columna_carpeta_extra.get().strip()
 
     if not archivo or not os.path.isfile(archivo):
         messagebox.showerror("Error", "Selecciona un archivo válido.")
@@ -38,16 +38,16 @@ def iniciar():
     if not fila_desde.isdigit() or not fila_hasta.isdigit():
         messagebox.showerror("Error", "Las filas deben ser números enteros.")
         return
-    if not columna_carpeta:
-        messagebox.showerror("Error", "Escribe el nombre exacto de la columna para crear las carpetas.")
-        return
-    if not columna_carpeta_extra:
-        messagebox.showerror("Error", "Escribe el nombre de la columna de continuación para las carpetas.")
-        return
+    # if not columna_carpeta:
+    #     messagebox.showerror("Error", "Escribe el nombre exacto de la columna para crear las carpetas.")
+    #     return
+    # if not columna_carpeta_extra:
+    #     messagebox.showerror("Error", "Escribe el nombre de la columna de continuación para las carpetas.")
+    #     return
 
     ruta_procesar = os.path.join(os.path.dirname(__file__), "procesar_links.py")
     subprocess.Popen([
-        sys.executable, ruta_procesar, archivo, columna, navegador.lower(), fila_desde, fila_hasta, columna_carpeta, columna_carpeta_extra
+        sys.executable, ruta_procesar, archivo, columna, navegador.lower(), fila_desde, fila_hasta
     ])
 
 
@@ -78,13 +78,13 @@ tk.Label(frame_opciones, text="Columna con los links:").grid(row=0, column=0, **
 entry_columna = tk.Entry(frame_opciones)
 entry_columna.grid(row=0, column=1, **padding_args)
 
-tk.Label(frame_opciones, text="Columna para carpetas:").grid(row=1, column=0, **padding_args)
-entry_columna_carpeta = tk.Entry(frame_opciones)
-entry_columna_carpeta.grid(row=1, column=1, **padding_args)
+# tk.Label(frame_opciones, text="Columna para carpetas:").grid(row=1, column=0, **padding_args)
+# entry_columna_carpeta = tk.Entry(frame_opciones)
+# entry_columna_carpeta.grid(row=1, column=1, **padding_args)
 
-tk.Label(frame_opciones, text="Columna continuación carpeta:").grid(row=1, column=2, **padding_args)
-entry_columna_carpeta_extra = tk.Entry(frame_opciones)
-entry_columna_carpeta_extra.grid(row=1, column=3, **padding_args)
+# tk.Label(frame_opciones, text="Columna continuación carpeta:").grid(row=1, column=2, **padding_args)
+# entry_columna_carpeta_extra = tk.Entry(frame_opciones)
+# entry_columna_carpeta_extra.grid(row=1, column=3, **padding_args)
 
 tk.Label(frame_opciones, text="Navegador:").grid(row=2, column=0, **padding_args)
 navegador_var = tk.StringVar()
